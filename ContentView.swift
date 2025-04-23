@@ -1,19 +1,21 @@
 import SwiftUI
 
-struct PhotoView: View {
-    var Photo:PhotoData
+struct ContentView: View {
+    let w:CGFloat = UIScreen.main.bounds.width-20
 
     var body: some view {
-        ScrollView {
-            LazyVStack {
+        VStack(aliment: .leading) {
+            Text("横スクロール").padding([.leading])
+        ScrollView(.horizontal) {
+            LazyHStack(alignment: .center, spacing: 10) {
                 ForEach(0..<10) { num in
                     Page(str: String(num)))
-                    .frame(width: 200, height: 150)
+                    .frame(width: w, height: 150)
                     .cornerRadiu(8)
                 }
             }
         }
-        .frame(width:250, height: 500)
+        .frame(width: 200)
         .background(Color.gray.opacity(0.2))
    }
 }
