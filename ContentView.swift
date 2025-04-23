@@ -4,22 +4,35 @@ struct PhotoView: View {
     var Photo:PhotoData
 
     var body: some view {
-        VStack {
-            Image(Photo.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                Text(photo.title)
-                .bold()
-                .padding(.top, 10)
-                .padding(.bottom, 20)
+        ScrollView {
+            LazyVStack {
+                ForEach(0..<10) { num in
+                    Page(str: String(num)))
+                    .frame(width: 200, height: 150)
+                    .cornerRadiu(8)
+                }
+            }
         }
-        .background(Color(red: 0.3, green: 0.8, blue: 0.5))
-        .cornerRadius(8)
+        .frame(width:250, height: 500)
+        .background(Color.gray.opacity(0.2))
+   }
+}
+struct Page:View {
+    let colors:[Color] = [.green, .blue, .pink, .orenge, .purple]
+    let str:String
+
+    var body: some View {
+        ZStack {
+            colors.randomElement()
+            Text(str)
+                .font(.largeTitle)
+                .foregroundColor(.white)
+        }
     }
 }
 
 struct PhotoView_Previews: PreviewProvider {
     static var previews: some view {
-        PhotoView(photo:photoArray[0])
+        ContentView()
     }
 }
