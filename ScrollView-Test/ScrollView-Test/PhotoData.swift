@@ -1,3 +1,10 @@
+//
+//  PhotoData.swift
+//  ScrollView-Test
+//
+//  Created by Dev Tech on 2025/04/24.
+//
+
 import Foundation
 
 // 写真データを構造体で定義
